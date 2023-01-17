@@ -12,4 +12,12 @@ export const createRoutes = (app: Express) => {
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(setup));
   app.use('/users', usersRoutes);
   app.use('/', authRoutes);
+  app.use((req: any, res, next) => {
+    if (!req.user)
+      res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    next();
+  });
+  app.use((req, res) => {
+    res.status(404).json({message: 'Page not found'});
+  });
 };

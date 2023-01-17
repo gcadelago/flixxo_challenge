@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import { logIn } from '../controllers/auth.controller';
+import { checkUserLogin } from '../middlewares/checkUserLogin';
 import { validateLogin } from '../validators/auth';
 
 const router = Router();
@@ -24,7 +25,7 @@ const router = Router();
  *                email:
  *                  type: string
  *                  format: varchar(100)
- *                  example: admin@ejemplo.com
+ *                  example: admin@example.com
  *                password:
  *                  type: string
  *                  format: varchar(255)
@@ -32,11 +33,19 @@ const router = Router();
  *      responses:
  *        200:
  *          description: User successfully logged in
- *        401:
- *          description: Incorrect username and/or password
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                example:
+ *                  {
+ *                    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZlMjVmNjI3LTFjZjYtNDg5ZC04ZDFlLTBjM2VmZTFkNGJlNSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJpYXQiOjE2NzM5NjU,
+ *                  }
+ *        400:
+ *          description: Error logging in 
  *        404:
- *          description: Invalid Email
+ *          description: Incorrect username and/or password
  */
-router.post('/login', validateLogin, logIn);
+router.post('/login', validateLogin, checkUserLogin, logIn);
 
 export default router;

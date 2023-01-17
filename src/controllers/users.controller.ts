@@ -11,7 +11,7 @@ export const index: RequestHandler = async (req, res) => {
       relations: ['role'],
     });
 
-    return res.status(200).json(users as any);
+    return res.status(200).json(users);
   } catch (err) {
     return res.status(400).json({ msg: err.message });
   }
@@ -19,7 +19,6 @@ export const index: RequestHandler = async (req, res) => {
 
 export const show: RequestHandler = async (req, res) => {
   const { id } = req.params;
-
   try {
     let user = await User.findOne({ where: { id }, relations: ['role'] });
 
@@ -31,21 +30,8 @@ export const show: RequestHandler = async (req, res) => {
   }
 };
 
-export const userActive: RequestHandler = async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const data = await User.findOne({ where: { id } });
-    if (!data) return res.status(404).json({ msg: 'User not found' });
-
-    return res.status(200).json(data);
-  } catch (err) {
-    return res.status(400).json({ msg: err.message });
-  }
-};
-
 export const store: RequestHandler = async (req, res) => {
-  const { email, last_name, alias, name, password, role } = req.body;
+  const { email, name, password, role } = req.body;
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -55,8 +41,6 @@ export const store: RequestHandler = async (req, res) => {
 
     const newUser = await User.save({
       name,
-      last_name,
-      alias,
       email,
       password: hashedPassword,
       role: roleObj,

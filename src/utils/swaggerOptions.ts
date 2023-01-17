@@ -12,7 +12,7 @@ export const swaggerOptions: swaggerJSDoc.Options = {
     },
     servers: [
       {
-        url: `https://flixxo-challenge.onrender.com/`,
+        url: `http://localhost:8000/`,
       },
     ],
   },
