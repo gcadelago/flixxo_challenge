@@ -5,11 +5,11 @@ import 'dotenv/config';
 export const AppDataSource = new DataSource({
   type: 'mysql',
   host: process.env.DB_HOST || 'localhost',
-  // port: 3306, // Acá configuraríamos el puerto, pero como estamos en local y usando XAMPP, no es necesario.
+  port: 3306, // Here we would configure the port, but as we are in local and using XAMPP, it is not necessary.
   username: process.env.DB_USER,
-  password: process.env.DB_PASS || null, // Acá iría la contraseña, pero como estamos en local no es necesario.
+  password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  synchronize: false, // Poner en FALSE en producción, porque actualiza la db en cada nuevo cambio.
+  synchronize: false, // Set to FALSE in production, because it updates the db at each new change.
   logging: false,
   entities: [path.join(__dirname, '/../database/models/**{.ts,.js}')],
   subscribers: [],
