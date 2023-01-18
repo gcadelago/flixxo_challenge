@@ -21,6 +21,10 @@
 
 [![NodeJs][nodejs.org]][node-url] [![Express][express.com]][express-url] [![Typescript][typescript.org]][typescript-url]
 
+For the hosting we used `Render`, in a free plan, the only limitation is that if it is not used after 15 minutes the server shuts down, the first query after that takes longer to perform, but then it works normally.
+`JawsDB`, a free service provided by AWS, was used for the database.
+`Swagger` for documentation.
+
 ## Installation <a name="installation"></a>
 
 1. Clone your repository locally.
