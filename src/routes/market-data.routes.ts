@@ -59,7 +59,7 @@ const router = express.Router();
  *        400:
  *          description: Error obtaining token
  */
-router.get('/:tkn_id', isAuthenticated, tokenExists, lastPrice);
+router.get('/:tkn_id', tokenExists, lastPrice);
 
 /**
  * @openapi
@@ -130,7 +130,7 @@ router.get('/:tkn_id', isAuthenticated, tokenExists, lastPrice);
  *        400:
  *          description: Error obtaining token
  */
-router.get('/:tkn_id/history', isAuthenticated, tokenExists, history);
+router.get('/:tkn_id/history', tokenExists, history);
 
 /**
  * @openapi
