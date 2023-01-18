@@ -6,8 +6,8 @@ import { Token } from "./Token";
     name: 'market_data',
   })
 export class MarketData extends BaseEntityExtended {
-  @ManyToOne(() => Token)
-  @JoinColumn()
+  @ManyToOne(() => Token, (tkn) => tkn.tkn_md)
+  @JoinColumn({name: 'md_token_id', referencedColumnName: 'tkn_id'})
   md_token_id: Token;
 
   @Column({ type: 'float', nullable: false })
