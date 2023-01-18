@@ -16,7 +16,6 @@ export const checkUserLogin: RequestHandler = async (req, res, next) => {
       }{
         req.body.id = user.id
         userPassword = user.password
-        console.log(req.body.id, userPassword)
       }
     })
     .catch((err) => {
@@ -24,8 +23,6 @@ export const checkUserLogin: RequestHandler = async (req, res, next) => {
     });
   
   await bcrypt.compare(password, userPassword).then((passwordIsValid) => {
-    console.log(passwordIsValid);
-    
     if (passwordIsValid) {
       return res.status(404).json({ msg: 'Incorrect email and/or password' });
     } else {
