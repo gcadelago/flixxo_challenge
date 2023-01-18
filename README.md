@@ -4,7 +4,7 @@
     </a>
 </p>
 
-## Indice
+## Index
 
 - <a href="#project">About the Project</a>
 - <a href="#technologies">Technologies</a>
@@ -30,7 +30,7 @@ For the hosting we used `Render`, in a free plan, the only limitation is that if
 1. Clone your repository locally.
 
 ```bash
-git clone + link de SSH o HTTPS
+git clone + link SSH / HTTPS
 ```
 
 2. Install dependencies [NPM](https://www.npmjs.com/ 'https://www.npmjs.com/').
@@ -107,7 +107,8 @@ a particular case, a purchase in an ecommerce, the order data related to a user 
 Briefly describe the advantages of the controller/service/repository pattern.
 
 ```bash
-The controller is only in charge of providing functionalities, the repository communicates with the database and the service is in charge of the commerce logic.
+The controller is only in charge of providing functionalities, the repository communicates with the database and the service is in charge of the commerce logic,
+this allows to maintain a clean code and an organized structure.
 ```
 
 What is the best way to store an enum type field in the DB?
