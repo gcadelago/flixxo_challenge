@@ -29,7 +29,7 @@ const router = Router();
  *                password:
  *                  type: string
  *                  format: varchar(255)
- *                  example: secret4
+ *                  example: secre4
  *      responses:
  *        200:
  *          description: User successfully logged in
