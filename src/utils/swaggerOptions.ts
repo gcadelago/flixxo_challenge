@@ -1,7 +1,5 @@
 import * as swaggerJSDoc from 'swagger-jsdoc';
 
-const port = process.env.PORT || 4000;
-
 export const swaggerOptions: swaggerJSDoc.Options = {
   definition: {
     openapi: '3.0.0',
@@ -12,7 +10,7 @@ export const swaggerOptions: swaggerJSDoc.Options = {
     },
     servers: [
       {
-        url: `http://localhost:8000/`,
+        url: `https://flixxo-challenge.onrender.com/`,
       },
     ],
   },
