@@ -11,10 +11,11 @@
 - <a href="#installation">Installation</a>
 - <a href="#config">Configuration</a>
 - <a href="#branches">How to use the branches</a>
+- <a href="#questions">Challenge questions</a>
 
 ## About the Project <a name="project"></a>
 
-`Flixxo challenge` is the Api for `Flixxo`'s challenge
+`Flixxo challenge` is an API for managing cryptos/tokens and their historical prices.
 
 ## Technologies <a name="technologies"></a>
 
@@ -44,11 +45,7 @@ npm install
 npm run migration:run
 ```
 
-4. Generate the seeds with the default administrator user.
-
-```bash
-npm run db:seed:all
-```
+4. Test data will be generated for testing, the test user and password can be found in the documentation in the login section.
 
 5. Start the server:
 
@@ -56,7 +53,7 @@ npm run db:seed:all
 npm run dev
 ```
 
-Then visit `http://localhost:8000/api-docs` to view the documentation page.
+Then visit `https://flixxo-challenge.onrender.com/api-docs/` to view the documentation page.
 
 ## How to use the branches <a name="branches"></a>
 
@@ -85,6 +82,40 @@ gitGraph
     merge new_branch
     checkout main
     merge release
+```
+
+## Challenge questions <a name="questions"></a>
+
+What is SQL Injection and how can it be avoided?
+
+```bash
+SQL injection is a way of attacking the database, making it vulnerable in order to alter the data inside it.
+Using ORMs such as TYPEORM, SEQUELIZE and middlewares such as Express-Validator prevents the user from entering sql code to modify the database.
+```
+
+When is it convenient to use SQL Transactions? Give an example.
+
+```bash
+SQL Transactions is convenient to use to be able to go back in time when interacting with the database.
+a particular case, a purchase in an ecommerce, the order data related to a user is saved, but until the purchase is not completed it is not sure that the saved data will be useful for the future, in case the buyer has canceled the purchase, a rollback can be made to cancel the purchase data.
+```
+
+Briefly describe the advantages of the controller/service/repository pattern.
+
+```bash
+The controller is only in charge of providing functionalities, the repository communicates with the database and the service is in charge of the commerce logic.
+```
+
+What is the best way to store an enum type field in the DB?
+
+```bash
+Generating an array containing the possible results to that field, having the possibility to save that array in another table to list the possible options.
+```
+
+Using async/await: how to take advantage of parallelism?
+
+```bash
+Using queue, an example of this is the use of queues in the optimization of an image, in the controller, the information of an image is stored using async and await, while in a queue the image is sent to optimize the weight for storage.
 ```
 
 [nodejs.org]: https://img.shields.io/badge/NodeJS-brightgreen?style=for-the-badge&logo=node.js&logoColor=white
