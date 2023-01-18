@@ -14,7 +14,7 @@ const router = Router();
  *      description: User login
  *      summary: User login
  *      tags:
- *        - Auth
+ *        - auth
  *      requestBody:
  *        required: true
  *        content:

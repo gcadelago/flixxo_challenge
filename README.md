@@ -14,7 +14,7 @@
 
 ## About the Project <a name="project"></a>
 
-`Flixxo challenge` is the Api for `Flixxo`
+`Flixxo challenge` is the Api for `Flixxo`'s challenge
 
 ## Technologies <a name="technologies"></a>
 
@@ -77,37 +77,15 @@ gitGraph
     commit
     checkout release
     commit
-    branch rama_nueva
+    branch new_branch
     commit
     checkout dev
-    merge rama_nueva
+    merge new_branch
     checkout release
-    merge rama_nueva
+    merge new_branch
     checkout main
     merge release
 ```
-
-Para realizar un hotfix:
-
-```mermaid
-gitGraph
-    commit
-    branch release
-    commit
-    branch dev
-    commit
-    checkout main
-    commit
-    branch hotfix
-    commit
-    checkout main
-    merge hotfix
-    checkout release
-    merge hotfix
-```
-
-<!-- For tags -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [nodejs.org]: https://img.shields.io/badge/NodeJS-brightgreen?style=for-the-badge&logo=node.js&logoColor=white
 [node-url]: https://nodejs.org
